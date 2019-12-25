@@ -1,0 +1,32 @@
+<%# Source: http://www.w3schools.com/bootstrap/bootstrap_navbar.asp %>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="navbar-header"> <!-- Brand and toggle get grouped for better mobile display -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand">
+        <%= link_to app_name, root_path %>
+      </div>
+    </div>
+
+    <% if Rails.application.config.multilingual %>
+      <ul class="nav navbar-nav">
+        <li class="nav-item dropdown">
+          <div aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" role="button">
+            <%= link_to "#" do %>
+              <span aria-hidden="true" class="fa fa-language fa-2x"></span>
+              <%= t(:language) %>
+            <% end %>
+          </div>
+          <%= language_switch_bootstrap('front') %>
+        </li>
+      </ul>
+    <% end %>  
+  </div>
+</nav>
+
